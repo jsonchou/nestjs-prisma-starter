@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { User as UserModel } from '@prisma/client';
+import { User as UserModel } from '../generated/prisma-class/user';
 import { UserService } from './user.service';
 
 @ApiTags('user')

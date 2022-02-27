@@ -8,7 +8,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Post as PostModel } from '@prisma/client';
+import { Post as PostModel } from '../generated/prisma-class/post';
 import { PostService } from './post.service';
 
 @Controller('post')

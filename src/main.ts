@@ -1,7 +1,8 @@
 import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import { PrismaModel } from './generated/prisma-class';
 import { PrismaService } from './prisma/prisma.service';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 declare const module: any;
 
@@ -15,7 +16,10 @@ async function bootstrap() {
     .setDescription('The Prisma API description')
     .setVersion('1.0')
     .build();
-  const document = SwaggerModule.createDocument(app, config);
+
+  const document = SwaggerModule.createDocument(app, config, {
+    extraModels: [...PrismaModel.extraModels],
+  });
   SwaggerModule.setup(SWAGGER_PREFIX, app, document);
 
   const prismaService: PrismaService = app.get(PrismaService);

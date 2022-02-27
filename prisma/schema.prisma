@@ -1,52 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-generator client {
-  provider = "prisma-client-js"
-}
-
-generator docs {
-  provider = "node node_modules/prisma-docs-generator"
-}
-
-generator jsonSchema {
-  provider = "prisma-json-schema-generator"
-}
-
-generator prismaClassGenerator {
-    provider = "prisma-class-generator"
-     output = "../src/generated/prisma-class"
-}
-
-generator erd {
-  provider = "prisma-erd-generator"
-  output = "../prisma/erd/index.svg"
-  theme = "default"
-}
-
-generator dbml {
-  provider            = "prisma-dbml-generator"
-  output              = "../dbml"
-  outputName          = "schema.dbml"
-  projectName         = "Prisma Project"
-  projectDatabaseType = "Sqlite"
-  projectNote         = "A Nestjs project use Prisma、sqlite、swagger"
-}
-
-generator nestjsDto {
-  provider                        = "prisma-generator-nestjs-dto"
-  output                          = "../src/generated/nestjs-dto"
-  outputToNestJsResourceStructure = "false"
-  exportRelationModifierClasses   = "true"
-  reExport                        = "false"
-  createDtoPrefix                 = "Create"
-  updateDtoPrefix                 = "Update"
-  dtoSuffix                       = "Dto"
-  entityPrefix                    = ""
-  entitySuffix                    = ""
-  fileNamingStyle                 = "camel"
-}
-
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
@@ -66,4 +20,52 @@ model Post {
   published Boolean? @default(false)
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  Int?
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator docs {
+  provider = "node node_modules/prisma-docs-generator"
+}
+
+generator jsonSchema {
+  provider = "prisma-json-schema-generator"
+}
+
+generator prismaClassGenerator {
+  dryRun                 = false
+  provider               = "prisma-class-generator"
+  output                 = "../src/generated/prisma-class"
+  seperateRelationFields = false
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "../prisma/erd/index.svg"
+  theme    = "default"
+}
+
+generator dbml {
+  provider            = "prisma-dbml-generator"
+  output              = "../prisma/dbml"
+  outputName          = "schema.dbml"
+  projectName         = "Prisma Project"
+  projectDatabaseType = "Sqlite"
+  projectNote         = "A Nestjs project use Prisma、sqlite、swagger"
+}
+
+generator nestjsDto {
+  provider                        = "prisma-generator-nestjs-dto"
+  output                          = "../src/generated/nestjs-dto"
+  outputToNestJsResourceStructure = "false"
+  exportRelationModifierClasses   = "true"
+  reExport                        = "false"
+  createDtoPrefix                 = "Create"
+  updateDtoPrefix                 = "Update"
+  dtoSuffix                       = "Dto"
+  entityPrefix                    = ""
+  entitySuffix                    = ""
+  fileNamingStyle                 = "camel"
 }

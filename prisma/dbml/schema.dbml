@@ -2,6 +2,11 @@
 //// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 //// ------------------------------------------------------
 
+Project "Prisma Project" {
+  database_type: 'Sqlite'
+  Note: 'A Nestjs project use Prisma、sqlite、swagger'
+}
+
 Table User {
   id Int [pk, increment]
   email String [unique, not null]
