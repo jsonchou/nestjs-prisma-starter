@@ -32,3 +32,8 @@ yarn doc:serve
 ``` js
 yarn erd:serve
 ```
+
+## swagger url
+``` js
+`http://localhost:3000/swagger/`
+```
