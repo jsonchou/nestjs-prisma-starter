@@ -10,7 +10,6 @@ export class UserController {
 
   @Get(':id')
   async getUserById(@Param('id') id: number): Promise<UserModel> {
-    console.log(4444, id);
     return this.userService.user({ id });
   }
 
