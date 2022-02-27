@@ -34,6 +34,4 @@ yarn erd:serve
 ```
 
 ## swagger url
-``` js
-http://localhost:3000/swagger/
-```
+[http://localhost:3000/swagger/](http://localhost:3000/swagger/)
