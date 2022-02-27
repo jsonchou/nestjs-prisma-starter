@@ -1,6 +1,6 @@
 # Prisma
-## A Nestjs project use Prisma、sqlite、swagger
-### With some intresting feature
+## A Nestjs project
+### With some interesting `prisma` feature
 - with dbml (copy your schema.dbml to https://dbdiagram.io/d, or use `erd` to know your dbml)
 - with dto class definition
 - with docs
