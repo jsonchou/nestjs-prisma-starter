@@ -38,7 +38,7 @@ generator prismaClassGenerator {
   dryRun                 = false
   provider               = "prisma-class-generator"
   output                 = "../src/generated/prisma-class"
-  seperateRelationFields = false
+  seperateRelationFields = true
 }
 
 generator erd {
